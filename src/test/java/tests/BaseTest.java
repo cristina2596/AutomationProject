@@ -6,11 +6,12 @@ import pages.BasePage;
 
 public class BaseTest {
     @BeforeSuite
-    public void init(){
+    public void init() {
         BasePage.setUP();
     }
+
     @AfterSuite
-    public void tearDown(){
+    public void tearDown() {
         BasePage.tearDown();
     }
 }
