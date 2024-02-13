@@ -21,13 +21,24 @@ public class SignInPage extends BasePage {
     }
 
     private By signInButton = By.id("btn1");
+    private By logo = By.id("logo");
+    private By emailfield = By.xpath("//input[@ng-model='Email']");
+    private By passwordfield = By.xpath("//input[@ng-model='Password']");
 
-    public void clicksignInButton (){
+    //aici locatorii cu private by
+    public void clicksignInButton() {
         LOG.info("Click 'Sign in' button");
         driver.findElement(signInButton).click();
     }
-    public boolean isSignInButtonDisplayed(){
-        LOG.info("Veridy if 'Sign in' button is displayed");
+
+    public boolean isSignInButtonDisplayed() {
+        LOG.info("Verify if 'Sign in' button is displayed");
         return driver.findElement(signInButton).isDisplayed();
+    }
+
+    //insert username, insert. driver.fiend element, send key pt a trimite parametrul username sau parola Sendkeys, gasim locatoru pt butonu de enter
+    public boolean isLogoDisplayed() {
+        LOG.info("Verify if Logo image is displayed");
+        return driver.findElement(logo).isDisplayed();
     }
 }
