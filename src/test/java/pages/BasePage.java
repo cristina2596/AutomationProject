@@ -34,12 +34,15 @@ public class BasePage {
             return baseurl.replace("Index.html", "");
         }
         return baseurl;
-        public static void sleep ( long ms){
-            try {
-                Thread.sleep(ms);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+    }
+
+    public static void sleep(long ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
+
+
 }
