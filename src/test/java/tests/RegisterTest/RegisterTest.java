@@ -15,7 +15,12 @@ public class RegisterTest extends BaseTest {
     String address = "Cluj, Strada ION Barbu, nr 456";
     String email = "automation@domain.com";
     String phone = "0123456789";
-
+    String language = "English";
+    String skill = "Java";
+    String country = "India";
+String year="1992";
+String month="February";
+String day= "25";
     @Test
     public void fillRegister() {
         driver.get(newUrl);
@@ -35,5 +40,30 @@ public class RegisterTest extends BaseTest {
 
         LOG.info("Type in phone number");
         registerPage.insertPhoneNumber(phone);
+
+
+        LOG.info("Select gender");
+        registerPage.setMaleGender();
+        registerPage.setFemaleGender();
+
+        LOG.info("Select Hobbies");
+        registerPage.setCricketCheckmarks();
+        registerPage.setMovieCheckmarks();
+        registerPage.setHockeyCheckmarks();
+
+
+        LOG.info("Select language");
+        registerPage.selectLanguage(language);
+
+        LOG.info("Select skill");
+        registerPage.setSelectSkills(skill);
+
+        LOG.info("Select country");
+        registerPage.setSelectCountry(country);
+
+
+        LOG.info("Select date of bith");
+        registerPage.setDateofBirth(year,month,day);
+        sleep(5000L);
     }
 }

@@ -30,7 +30,7 @@ public class SignInPage extends BasePage {
     private By signUp = By.id("email");
     private By registerButton = By.id("enterimg");
 
-    //aici locatorii cu private by
+
     public void clicksignInButton() {
         LOG.info("Click 'Sign in' button");
         driver.findElement(signInButton).click();
