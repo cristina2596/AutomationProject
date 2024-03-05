@@ -18,16 +18,18 @@ public class RegisterTest extends BaseTest {
     String language = "English";
     String skill = "Java";
     String country = "India";
-String year="1992";
-String month="February";
-String day= "25";
+    String year = "1992";
+    String month = "February";
+    String day = "25";
+    String password = "secretpassword";
+
     @Test
     public void fillRegister() {
         driver.get(newUrl);
         sleep(3000L);
 
-        LOG.info("Press the consent button");
-        registerPage.pressConsent();
+//        LOG.info("Press the consent button");
+//        registerPage.pressConsent();
 
         LOG.info("Typing full name");
         registerPage.insertFullName(firstName, lastName);
@@ -63,7 +65,17 @@ String day= "25";
 
 
         LOG.info("Select date of bith");
-        registerPage.setDateofBirth(year,month,day);
+        registerPage.setDateofBirth(year, month, day);
         sleep(5000L);
+
+        LOG.info("Insert password, confirm password");
+        registerPage.setPassword(password);
+        sleep(2000);
+
+        LOG.info("Click 'choose file'");
+        registerPage.chooseFile();
+sleep(2000);
+        LOG.info("Click submit");
+        registerPage.clickSubmitButton();
     }
 }

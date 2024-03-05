@@ -2,6 +2,7 @@ package pages.RegisterPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +42,10 @@ public class RegisterPage extends BasePage {
     private By selectYear = By.id("yearbox");
     private By selectMonth = By.xpath("//select[@ng-model='monthbox']");
     private By selectDay = By.id("daybox");
-
+    private By password1 = By.id("firstpassword");
+    private By secondPassword = By.id("secondpassword");
+    private By chooseFileButton = By.id("imagesrc");
+    private By submitButton = By.id("submitbtn");
 
     public void insertFullName(String fName, String lName) {
         LOG.info("Inserting 'FirstName and LastName");
@@ -115,16 +119,35 @@ public class RegisterPage extends BasePage {
         driver.findElement(insertCountry).sendKeys(country);
         driver.findElement(selectCountry).sendKeys(Keys.ENTER);
     }
-public void setDateofBirth(String year, String month, String day){
+
+    public void setDateofBirth(String year, String month, String day) {
         LOG.info("Selecting date of birth");
-        Select newYear=new Select(driver.findElement(selectYear));
+        Select newYear = new Select(driver.findElement(selectYear));
         newYear.selectByValue(year);
-        Select newMonth= new Select(driver.findElement(selectMonth));
+        Select newMonth = new Select(driver.findElement(selectMonth));
         newMonth.selectByValue(month);
-        Select newDay=new Select(driver.findElement(selectDay));
+        Select newDay = new Select(driver.findElement(selectDay));
         newDay.selectByValue(day);
 
-}
+    }
+
+    public void setPassword(String pass) {
+        LOG.info("Setting password and confirm passoword");
+        driver.findElement(password1).sendKeys(pass);
+        driver.findElement(secondPassword).sendKeys(pass);
+
+    }
+
+    public void chooseFile() {
+        LOG.info("Uploading file");
+        WebElement chooseFile = driver.findElement(chooseFileButton);
+        chooseFile.sendKeys("C:\\img\\prajitura.webp");
+    }
+
+    public void clickSubmitButton() {
+        LOG.info("Click submit");
+        driver.findElement(submitButton).click();
+    }
 }
 
 
